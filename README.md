@@ -33,6 +33,7 @@ Jarayonni tezlashtirish uchun barcha kerakli paketlar o'rnatilgan.
 2. <code>New OAuth app</code> tugmasi orqali o'tamiz va barcha majburiy inputlarni to'ldirib yangi app yaratamiz
 3. Appni ichiga kirib <code>Client ID</code> olamiz
 4. <code>Generate a new client secret</code> tugmasi orqali <code>Client secret</code> olamiz
+5. <code>.env</code> faylga kiritib qo'yamiz
 
 ### Routlarni sozlash
 
