@@ -8,6 +8,8 @@
         "php": "^8.2",
         "laravel/breeze": "^2.0",
         "laravel/framework": "^11.0",
+        "laravel/socialite": "^5.14",
+        "laravel/telescope": "^5.0",
         "laravel/tinker": "^2.9"
     },
     "require-dev": {
@@ -50,7 +52,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {
