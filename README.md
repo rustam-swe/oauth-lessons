@@ -6,18 +6,62 @@
 
 # OAuth asoslari Laravel bilan
 
-OAuth2 - bu resursga ruxsat berish jarayonlari standarti. Protokol bilan qisqacha tanishamiz va Laravel bilan integratsiya qilamiz. 
+OAuth2 - bu resursga ruxsat berish jarayonlari standarti. Protokol bilan qisqacha tanishamiz va Laravel bilan
+integratsiya qilamiz.
+
+## Texnik talablar
+
+- php: 8.3
+- Laravel: 11
+
+<hr>
+
+## O'rnatish va ishga tushirish
+
+1. <code>.env</code> fayl yaratamiz
+
+    ```Bash
+   cp .env.example .env
+    ```
+
+2. Laravel uchun <code>key</code> yaratamiz
+
+    ```Bash
+    php artisan key:generate
+    ```
+
+3. <code>composer</code> dan <code>dependency</code> larni yuklab olamiz
+
+    ```Bash
+    composer install
+    ```
+4. <code>npm</code> dan <code>dependency</code> larni yuklaymiz va <code>build</code> qilamiz
+
+    ```Bash
+    npm install && npm run build
+    ```
+   
+5. Migratsiya qilamiz
+
+    ```Bash
+   php artisan migrate 
+   ```
 
 ## Boshlang'ich talablar
+
 Jarayonni tezlashtirish uchun barcha kerakli paketlar o'rnatilgan.
 
 ### O'rnatilgan paketlar:
+
 - [Socialite](https://laravel.com/docs/11.x/socialite) - asosiy OAuth paketi
-- [Breeze](https://laravel.com/docs/11.x/starter-kits#laravel-breeze) - minimal autentifikatsiya va boshlang'ich sahifalar paketi
+- [Breeze](https://laravel.com/docs/11.x/starter-kits#laravel-breeze) - minimal autentifikatsiya va boshlang'ich
+  sahifalar paketi
 - [Telescope](https://laravel.com/docs/11.x/telescope) - ish jarayonida qulaylik uchun yordamchi (majburiy emas)
 
 ## Sozlash bo'yicha yo'riqnoma
+
 ### Servisni sozlash
+
 <code>config/services.php</code> ichida github uchun ma'lumotlarni kiritamiz
 
 ```php
@@ -27,7 +71,8 @@ Jarayonni tezlashtirish uchun barcha kerakli paketlar o'rnatilgan.
     'redirect'      => 'https://example.com/callback-url',
 ],
 ```
-#### GitHubdan client_id va client_secret olish
+
+#### [GitHub](https://github.com/settings/developers) dan <code>OAuth</code> client_id va client_secret olish
 
 1. Ushbu [havola](https://github.com/settings/developers) orqali githubnin oauth tokenlari bo'limiga o'tamiz
 2. <code>New OAuth app</code> tugmasi orqali o'tamiz va barcha majburiy inputlarni to'ldirib yangi app yaratamiz
@@ -50,7 +95,7 @@ Route::get('/auth/callback', function () {
 ```
 
 > ### MUHIM ESLATMA!
-> 
+>
 > <code>auth.php</code> dagi callback route va <code>services.php</code> dagi redirect urllari bir xil bo'lishi kerak!
 
 ### GitHub orqali kirish tugmasini yaratish
@@ -67,12 +112,13 @@ Route::get('/auth/callback', function () {
 ```
 
 > Yodda tuting!
-> 
+>
 > ```php 
 > url('/auth/redirect') // auth.php dagi redirect url
 > ```
 
 ### GitHub orqali kirish tugmasini ko'rsatish
+
 <code>resources/views/auth/login.blade.php</code> faylimizda o'zimizga kerakli bo'lgan joyga tugmani (komponentni) qo'shamiz
 ```html
 <x-social-links/>
